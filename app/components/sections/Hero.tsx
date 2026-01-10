@@ -43,12 +43,12 @@ export function Hero() {
             <span className="text-sm text-muted-foreground">Covering Edinburgh, West Lothian & Fife</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
             <span className="block gradient-text">Websites & Social Media</span>
-            <span className="block text-foreground">for Modern Local Businesses</span>
+            <span className="block text-foreground text-[0.85em]">for Modern Local Businesses</span>
           </h1>
 
-          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             Clear websites and consistent content that help businesses get found, look professional, and convert
             enquiries.
           </p>
