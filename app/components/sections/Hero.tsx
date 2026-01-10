@@ -49,7 +49,7 @@ export function Hero() {
           </h1>
 
           <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Websites and social media content for businesses across Edinburgh, West Lothian, and Fife
+            Website design and social media content for businesses across Edinburgh, West Lothian & Fife
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
@@ -70,7 +70,7 @@ export function Hero() {
         </div>
 
         <div
-          className={`mt-12 sm:mt-16 flex flex-wrap justify-center gap-4 sm:gap-8 md:gap-16 transition-all duration-700 delay-300 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+          className={`mt-12 sm:mt-16 flex flex-wrap justify-center gap-4 sm:gap-8 md:gap-16 transition-all duration-700 delay-300 ${isLoaded ? "opacity-100" : "opacity-0"}`}
         >
           {stats.map((stat, index) => (
             <div

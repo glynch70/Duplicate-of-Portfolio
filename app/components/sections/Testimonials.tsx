@@ -17,7 +17,7 @@ const testimonials: Testimonial[] = [
     role: "Events Manager",
     company: "Edinburgh Conference Centre",
     content:
-      "Professional work at our annual conference. Garry captured key moments without being intrusive. The photos perfectly showcase the energy of the event.",
+      "Garry captured our annual conference perfectly. Unobtrusive, professional, and the photos showcase exactly what we needed.",
     rating: 5,
   },
   {
@@ -25,7 +25,7 @@ const testimonials: Testimonial[] = [
     role: "Owner",
     company: "K Lewis Joinery",
     content:
-      "The drone footage and photography of our projects has been invaluable for marketing. Professional service, quality work.",
+      "The drone footage and photography of our projects has been invaluable. Professional service, quality speaks for itself.",
     rating: 5,
   },
   {
@@ -33,7 +33,7 @@ const testimonials: Testimonial[] = [
     role: "Marketing Director",
     company: "Scottish Property Group",
     content:
-      "We've used Bear Media for multiple property shoots. Attention to detail and quick turnaround make Garry our go-to for commercial work.",
+      "We've used Bear Media for multiple property shoots. Attention to detail and quick turnaround make Garry our go-to.",
     rating: 5,
   },
 ]
@@ -46,7 +46,7 @@ export function Testimonials() {
           <h2 className="gradient-text text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">Client Testimonials</h2>
           <div className="h-1 w-20 bg-gradient-to-r from-orange-500 to-amber-500 mx-auto rounded-full mb-4" />
           <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto px-4">
-            What clients say about working with Bear Media
+            Hear what clients say about working with Bear Media
           </p>
         </div>
 

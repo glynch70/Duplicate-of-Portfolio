@@ -5,23 +5,23 @@ const websites = [
   {
     title: "K Lewis Joinery",
     image: "/images/K Lewis Joinery website design West Lothian.jpg",
-    description: "Equestrian and joinery specialists portfolio",
+    description: "One-page portfolio for equestrian and joinery specialists",
     url: "https://www.klewisjoineryltd.co.uk/",
-    features: ["One-page site", "Mobile ready", "West Lothian"],
+    features: ["One-Page Site", "Mobile First", "Fast Load"],
   },
   {
     title: "Herb & Soul",
     image: "/images/Herb and Soul website design project Bear Media.jpg",
-    description: "Herbalism wellness with online shop",
+    description: "Multi-page wellness site with service breakdown",
     url: "https://www.herbandsoul.uk/",
-    features: ["Multi-page", "E-commerce", "Booking system"],
+    features: ["Multi-Page", "Service Pages", "Local SEO"],
   },
   {
     title: "Managing What Matters",
     image: "/images/Managing What Matters website design Bear Media Scotland.jpg",
-    description: "Leadership consultancy with clear service structure",
+    description: "B2B consultancy platform designed for credibility",
     url: "https://www.managingwhatmatters.co.uk/",
-    features: ["Multi-page", "Professional", "B2B"],
+    features: ["Multi-Page", "B2B Focus", "Lead Generation"],
   },
 ]
 
@@ -59,7 +59,7 @@ export function WebDevelopment() {
             }}
           />
           <p style={{ fontSize: "1.125rem", color: "#9CA3AF", maxWidth: "48rem", margin: "0 auto" }}>
-            Custom websites built for Scottish businesses. Clear, fast, conversion-focused.
+            Custom-built business websites designed for clarity, speed, and results
           </p>
         </motion.div>
 

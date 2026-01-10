@@ -18,23 +18,23 @@ const featuredProjects: Project[] = [
   {
     name: "K Lewis Joinery",
     type: "Website",
-    description: "Equestrian and joinery business based in West Lothian",
-    outcome: "Clear services, mobile-ready design, easy contact",
-    tags: ["One-page site", "Mobile First", "West Lothian"],
+    description: "Equestrian and joinery portfolio showcasing craftsmanship",
+    outcome: "Clear service presentation driving local enquiries",
+    tags: ["One-Page Site", "Mobile First", "West Lothian"],
   },
   {
     name: "Free Spirit Coaching",
     type: "Website",
-    description: "Wellness coaching practice in Edinburgh",
-    outcome: "Professional presence with booking system driving enquiries",
-    tags: ["Multi-page", "Booking", "Edinburgh"],
+    description: "Wellness coaching with integrated booking system",
+    outcome: "Professional presence converting visitors to bookings",
+    tags: ["Multi-Page Site", "Booking System", "Lead Generation"],
   },
   {
     name: "Managing What Matters",
     type: "Website",
-    description: "Leadership training consultancy",
-    outcome: "Clear positioning and service delivery explanation",
-    tags: ["Multi-page", "B2B", "Scotland-wide"],
+    description: "B2B consultancy platform with clear service offerings",
+    outcome: "Leadership positioning driving corporate enquiries",
+    tags: ["Multi-Page Site", "B2B Focus", "Consultancy"],
   },
 ]
 
@@ -42,26 +42,26 @@ const websiteProjects: Project[] = [
   {
     name: "K Lewis Joinery",
     type: "Website",
-    description: "Equestrian and joinery specialists. Portfolio showcasing craftsmanship",
-    tags: ["One-page", "Local Business", "West Lothian"],
+    description: "One-page portfolio built for speed and clarity",
+    tags: ["One-Page", "Fast Load", "Local Business"],
   },
   {
     name: "Herb & Soul",
     type: "Website",
-    description: "Herbalism and wellness. Online shop with service bookings",
-    tags: ["Multi-page", "E-commerce", "Wellness"],
+    description: "Multi-page wellness site with service breakdown",
+    tags: ["Multi-Page", "Wellness", "Service Pages"],
   },
   {
     name: "Free Spirit Coaching",
     type: "Website",
-    description: "Wellness coaching with integrated online booking",
-    tags: ["Multi-page", "Booking System", "Edinburgh"],
+    description: "Lead-driven site with booking functionality",
+    tags: ["Booking System", "Lead Generation", "Coaching"],
   },
   {
     name: "Managing What Matters",
     type: "Website",
-    description: "Performance consultancy with clear service structure",
-    tags: ["Multi-page", "B2B", "Professional Services"],
+    description: "B2B consultancy site designed for credibility",
+    tags: ["Multi-Page", "B2B", "Professional"],
   },
 ]
 
@@ -69,26 +69,26 @@ const socialProjects: Project[] = [
   {
     name: "Event Coverage",
     type: "Social Media",
-    description: "Corporate events and conferences. Professional coverage",
-    tags: ["Video", "Photo", "Edinburgh"],
+    description: "Corporate events and conferences across Scotland",
+    tags: ["Video", "Photo", "Consistent Coverage"],
   },
   {
     name: "Culinary Content",
     type: "Social Media",
-    description: "Restaurant and food businesses. Menu and venue content",
-    tags: ["Video", "Photo", "Edinburgh"],
+    description: "Food and restaurant content for local hospitality",
+    tags: ["Video", "Food", "Brand Presence"],
   },
   {
-    name: "Property & Architecture",
+    name: "Property Content",
     type: "Social Media",
-    description: "Construction and property businesses. Site and project documentation",
-    tags: ["Drone", "Photo", "Scotland"],
+    description: "Drone and architectural content for property businesses",
+    tags: ["Drone", "Photo", "Trust Building"],
   },
   {
-    name: "Ongoing Support",
+    name: "Business Content",
     type: "Social Media",
-    description: "Regular content for Scottish businesses. Consistent brand presence",
-    tags: ["Video", "Photo", "Monthly Packages"],
+    description: "Ongoing content keeping Scottish businesses visible",
+    tags: ["Video", "Photo", "Consistency"],
   },
 ]
 
@@ -101,7 +101,7 @@ export function Portfolio() {
           <h2 className="gradient-text text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">Work</h2>
           <div className="h-1 w-20 bg-gradient-to-r from-orange-500 to-amber-500 mx-auto rounded-full mb-4" />
           <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto px-4">
-            Websites that explain your business clearly. Content that keeps you visible and builds trust.
+            Websites that get you found and content that keeps you visible
           </p>
         </div>
 
@@ -118,9 +118,9 @@ export function Portfolio() {
         {/* Website Projects */}
         <div className="mb-16 sm:mb-20 md:mb-24">
           <div className="mb-6 sm:mb-8">
-            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Websites</h3>
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Website Projects</h3>
             <p className="text-sm sm:text-base text-gray-400">
-              Custom-built sites designed for clarity and easy contact
+              Custom-built sites designed for clarity, speed, and conversion
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
@@ -135,7 +135,7 @@ export function Portfolio() {
           <div className="mb-6 sm:mb-8">
             <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Social Media Content</h3>
             <p className="text-sm sm:text-base text-gray-400">
-              Video and photo content for consistent presence and trust-building
+              Consistent content that builds presence and trust — not viral chasing
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
@@ -151,26 +151,30 @@ export function Portfolio() {
           <div className="glass p-6 sm:p-8 rounded-xl space-y-6">
             <ProcessStep
               number="1"
-              title="Understand the business"
-              description="What you do, who for, what makes you different"
+              title="Understand your business"
+              description="What you do, who you serve, what sets you apart"
             />
             <ProcessStep
               number="2"
-              title="Build the website"
-              description="Clear explanation of your offer with easy contact"
+              title="Build the foundation"
+              description="A website that explains your offer and makes contact easy"
             />
             <ProcessStep
               number="3"
               title="Support with content"
-              description="Ongoing video and photo content that keeps you visible"
+              description="Video and photo content that keeps you visible and credible"
             />
           </div>
         </div>
 
         {/* CTA */}
         <div className="text-center glass p-8 sm:p-10 md:p-12 rounded-2xl max-w-3xl mx-auto">
-          <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">Need a website, social content, or both?</h3>
-          <p className="text-base sm:text-lg text-gray-400 mb-6">Let's talk about what you need</p>
+          <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+            Need a website, social media content, or both?
+          </h3>
+          <p className="text-base sm:text-lg text-gray-400 mb-6">
+            Let's talk about what you need and how it fits together
+          </p>
           <a
             href="#contact"
             className="inline-block px-8 py-4 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full font-semibold text-lg text-white hover:from-orange-400 hover:to-amber-400 active:scale-98 transition-all duration-300 min-h-[48px]"

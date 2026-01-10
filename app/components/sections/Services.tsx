@@ -6,20 +6,20 @@ const services = [
   {
     icon: Video,
     title: "Video",
-    description: "Professional video for websites and social media content",
-    features: ["Event coverage", "Business profiles", "Product showcases"],
+    description: "Content for websites and social media — not corporate fluff",
+    features: ["Event coverage", "Website content", "Social media"],
   },
   {
     icon: Camera,
     title: "Photo",
-    description: "Photography for websites, social media, and marketing materials",
-    features: ["Business headshots", "Product photography", "Event photography"],
+    description: "Professional photography for websites, social, and marketing",
+    features: ["Events", "Products", "Architecture"],
   },
   {
     icon: Plane,
     title: "Drone",
-    description: "Aerial photography and video for properties and construction",
-    features: ["Property sites", "Construction progress", "Location showcases"],
+    description: "Aerial content for property, construction, and unique perspectives",
+    features: ["Property shots", "Construction sites", "Aerial video"],
   },
 ]
 
@@ -32,7 +32,7 @@ export function Services() {
           <h2 className="gradient-text text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">Services</h2>
           <div className="h-1 w-20 bg-gradient-to-r from-orange-500 to-amber-500 mx-auto rounded-full mb-4" />
           <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto px-4">
-            Video, photography, and drone services that support your website and social media
+            Video, photo, and drone services that support your website and social presence
           </p>
         </div>
 

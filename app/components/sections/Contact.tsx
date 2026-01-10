@@ -28,7 +28,7 @@ export function Contact() {
           <h2 className="gradient-text text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">Get in Touch</h2>
           <div className="h-1 w-20 bg-gradient-to-r from-orange-500 to-amber-500 mx-auto rounded-full mb-4" />
           <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto px-4">
-            Get in touch to discuss your project
+            Need a website, content, or both? Get in touch
           </p>
         </motion.div>
 
