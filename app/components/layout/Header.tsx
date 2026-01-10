@@ -19,7 +19,7 @@ export function Header() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 h-16 transition-colors duration-300 ${
-        isScrolled ? "bg-zinc-950/95 border-b border-white/10" : "bg-transparent"
+        isScrolled ? "bg-background/95 border-b border-border" : "bg-transparent"
       }`}
       style={{
         WebkitBackdropFilter: isScrolled ? "blur(8px)" : "none",
@@ -30,7 +30,9 @@ export function Header() {
         <div className="flex items-center justify-between h-full">
           <a href="/" className="flex flex-col">
             <span className="text-xl sm:text-2xl font-bold gradient-text leading-tight">Bear Media</span>
-            <span className="text-[10px] sm:text-xs text-gray-400 leading-tight">Websites & Social Media Content</span>
+            <span className="text-[10px] sm:text-xs text-muted-foreground leading-tight">
+              Websites & Social Media Content
+            </span>
           </a>
 
           {/* Desktop Menu */}
@@ -39,19 +41,22 @@ export function Header() {
               <a
                 key={item.label}
                 href={item.href}
-                className="relative text-gray-300 hover:text-white transition-colors duration-300 group py-2"
+                className="relative text-muted-foreground hover:text-foreground transition-colors duration-300 group py-2"
               >
                 {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-400 to-amber-400 group-hover:w-full transition-all duration-300" />
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-300" />
               </a>
             ))}
-            <a href="tel:+44" className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors">
+            <a
+              href="tel:+44"
+              className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+            >
               <Phone className="w-4 h-4" />
               <span className="hidden xl:inline">Call Now</span>
             </a>
             <a
               href="#contact"
-              className="px-5 py-2.5 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full font-medium text-white hover:from-orange-400 hover:to-amber-400 active:scale-98 transition-all duration-300 min-h-[44px] flex items-center"
+              className="px-5 py-2.5 bg-gradient-to-r from-primary to-accent rounded-full font-medium text-primary-foreground hover:opacity-90 active:scale-98 transition-all duration-300 min-h-[44px] flex items-center"
             >
               Get a Quote
             </a>
@@ -59,7 +64,7 @@ export function Header() {
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-3 -mr-3 text-gray-300 hover:text-white transition-colors min-w-[48px] min-h-[48px] flex items-center justify-center"
+            className="lg:hidden p-3 -mr-3 text-muted-foreground hover:text-foreground transition-colors min-w-[48px] min-h-[48px] flex items-center justify-center"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -69,14 +74,14 @@ export function Header() {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden fixed inset-0 top-16 bg-zinc-950/98 transition-all duration-300 ${
+        className={`lg:hidden fixed inset-0 top-16 bg-background/98 transition-all duration-300 ${
           isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
         }`}
       >
         <div className="px-6 py-6 flex flex-col gap-2">
-          <div className="flex flex-col mb-4 pb-4 border-b border-white/10">
+          <div className="flex flex-col mb-4 pb-4 border-b border-border">
             <span className="text-2xl font-bold gradient-text leading-tight">Bear Media</span>
-            <span className="text-xs text-gray-400 leading-tight">Websites & Social Media Content</span>
+            <span className="text-xs text-muted-foreground leading-tight">Websites & Social Media Content</span>
           </div>
 
           {NAV_ITEMS.map((item) => (
@@ -84,7 +89,7 @@ export function Header() {
               key={item.label}
               href={item.href}
               onClick={() => setIsMenuOpen(false)}
-              className="text-gray-300 hover:text-white transition-colors py-4 text-lg border-b border-white/10 min-h-[48px] flex items-center"
+              className="text-muted-foreground hover:text-foreground transition-colors py-4 text-lg border-b border-border min-h-[48px] flex items-center"
             >
               {item.label}
             </a>
@@ -92,7 +97,7 @@ export function Header() {
           <a
             href="tel:+44"
             onClick={() => setIsMenuOpen(false)}
-            className="mt-2 px-6 py-4 bg-zinc-800 rounded-full font-medium text-white text-center flex items-center justify-center gap-2 min-h-[48px]"
+            className="mt-2 px-6 py-4 bg-secondary rounded-full font-medium text-foreground text-center flex items-center justify-center gap-2 min-h-[48px]"
           >
             <Phone className="w-5 h-5" />
             Call Now
@@ -100,7 +105,7 @@ export function Header() {
           <a
             href="#contact"
             onClick={() => setIsMenuOpen(false)}
-            className="px-6 py-4 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full font-medium text-white text-center active:scale-98 transition-all duration-300 min-h-[48px] flex items-center justify-center"
+            className="px-6 py-4 bg-gradient-to-r from-primary to-accent rounded-full font-medium text-primary-foreground text-center active:scale-98 transition-all duration-300 min-h-[48px] flex items-center justify-center"
           >
             Get a Quote
           </a>
