@@ -19,20 +19,19 @@ export function Hero() {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-secondary to-background" />
-
       <div className="absolute inset-0">
         <img
-          src="/images/Garry Lynch professional videographer West Lothian.1.png"
+          src="/images/12a3869.jpg"
           alt=""
-          className="w-full h-full object-cover opacity-30"
-          loading="lazy"
+          className="w-full h-full object-cover object-center saturate-[0.85] blur-[1px]"
+          loading="eager"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/50 to-transparent" />
+        {/* Dark gradient overlay from top to bottom */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/65 to-black/85" />
+        {/* Subtle vignette effect */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)]" />
       </div>
-
       {/* Hero Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 text-center">
         <div
