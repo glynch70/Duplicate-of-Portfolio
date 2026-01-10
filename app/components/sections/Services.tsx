@@ -6,20 +6,20 @@ const services = [
   {
     icon: Video,
     title: "Video",
-    description: "Professional video production for events, commercials, and promotional content",
-    features: ["Event coverage", "Corporate videos", "Social media content"],
+    description: "Professional video for websites and social media content",
+    features: ["Event coverage", "Business profiles", "Product showcases"],
   },
   {
     icon: Camera,
     title: "Photo",
-    description: "High-quality photography for events, products, and architectural projects",
-    features: ["Event photography", "Product photography", "Architectural shots"],
+    description: "Photography for websites, social media, and marketing materials",
+    features: ["Business headshots", "Product photography", "Event photography"],
   },
   {
     icon: Plane,
     title: "Drone",
-    description: "Aerial photography and videography for unique perspectives",
-    features: ["Aerial photography", "Property surveys", "4K & 6K footage"],
+    description: "Aerial photography and video for properties and construction",
+    features: ["Property sites", "Construction progress", "Location showcases"],
   },
 ]
 
@@ -32,7 +32,7 @@ export function Services() {
           <h2 className="gradient-text text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">Services</h2>
           <div className="h-1 w-20 bg-gradient-to-r from-orange-500 to-amber-500 mx-auto rounded-full mb-4" />
           <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto px-4">
-            Comprehensive content creation services tailored to bring your vision to life
+            Video, photography, and drone services that support your website and social media
           </p>
         </div>
 

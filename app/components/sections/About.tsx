@@ -97,7 +97,7 @@ export function About() {
             }}
           />
           <p style={{ fontSize: "1.25rem", color: "#9CA3AF", maxWidth: "48rem", margin: "0 auto" }}>
-            Based in Broxburn, West Lothian - serving Edinburgh, West Lothian, Fife and across Scotland
+            Based in Broxburn, West Lothian. Serving Edinburgh, West Lothian, Fife, and across Scotland.
           </p>
         </motion.div>
 
@@ -226,21 +226,17 @@ export function About() {
                 lineHeight: "1.2",
               }}
             >
-              Capturing Scotland's Stories Through Expert Visual Content
+              Professional Content Creation for Scottish Businesses
             </h3>
 
             <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem", marginBottom: "2rem" }}>
               <p style={{ fontSize: "1.0625rem", lineHeight: "1.8", color: "#9CA3AF" }}>
-                <strong style={{ color: "white" }}>Bear Media</strong> is a professional content creation studio based
-                in Broxburn, West Lothian, specialising in video production, photography, and drone services. We proudly
-                serve Edinburgh, West Lothian, Fife, and clients across Scotland.
+                Bear Media is a professional content studio based in Broxburn, West Lothian. I specialise in websites,
+                video, photography, and drone services for businesses across Scotland.
               </p>
               <p style={{ fontSize: "1.0625rem", lineHeight: "1.8", color: "#9CA3AF" }}>
-                From <strong style={{ color: "white" }}>Master Chefs events</strong> to{" "}
-                <strong style={{ color: "white" }}>architectural photography</strong>, from{" "}
-                <strong style={{ color: "white" }}>corporate conferences</strong> to{" "}
-                <strong style={{ color: "white" }}>stunning aerial shots</strong>, we deliver high-quality visual
-                content that elevates your brand and tells your unique story.
+                From corporate events to property documentation, from business websites to ongoing social content—clear,
+                professional work that helps Scottish businesses get found and contacted.
               </p>
             </div>
 

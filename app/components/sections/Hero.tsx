@@ -49,7 +49,7 @@ export function Hero() {
           </h1>
 
           <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Video • Photo • Drone • Web
+            Websites and social media content for businesses across Edinburgh, West Lothian, and Fife
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
