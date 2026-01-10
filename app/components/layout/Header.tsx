@@ -28,8 +28,9 @@ export function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-full">
         <div className="flex items-center justify-between h-full">
-          <a href="/" className="text-xl sm:text-2xl font-bold gradient-text">
-            Bear Media
+          <a href="/" className="flex flex-col">
+            <span className="text-xl sm:text-2xl font-bold gradient-text leading-tight">Bear Media</span>
+            <span className="text-[10px] sm:text-xs text-gray-400 leading-tight">Websites & Social Media Content</span>
           </a>
 
           {/* Desktop Menu */}
@@ -73,6 +74,11 @@ export function Header() {
         }`}
       >
         <div className="px-6 py-6 flex flex-col gap-2">
+          <div className="flex flex-col mb-4 pb-4 border-b border-white/10">
+            <span className="text-2xl font-bold gradient-text leading-tight">Bear Media</span>
+            <span className="text-xs text-gray-400 leading-tight">Websites & Social Media Content</span>
+          </div>
+
           {NAV_ITEMS.map((item) => (
             <a
               key={item.label}

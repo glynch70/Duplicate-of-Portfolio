@@ -44,12 +44,13 @@ export function Hero() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-tight">
-            <span className="block text-white">Edinburgh's</span>
-            <span className="block gradient-text">Content Creator</span>
+            <span className="block gradient-text">Websites & Social Media</span>
+            <span className="block text-white">for Modern Local Businesses</span>
           </h1>
 
           <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Website design and social media content for businesses across Edinburgh, West Lothian & Fife
+            Clear websites and consistent content that help businesses get found, look professional, and convert
+            enquiries.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
