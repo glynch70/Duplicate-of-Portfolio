@@ -132,7 +132,7 @@ export function About() {
               }}
             >
               <img
-                src="/placeholder.svg?height=800&width=600"
+                src="/images/Garry Lynch professional headshot Bear Media Scotland.jpeg"
                 alt="Garry Lynch - Bear Media Founder and Professional Content Creator"
                 className="absolute inset-0 w-full h-full object-cover"
                 style={{ objectPosition: "center 25%" }}

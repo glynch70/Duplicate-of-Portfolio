@@ -4,21 +4,21 @@ import { motion } from "framer-motion"
 const websites = [
   {
     title: "K Lewis Joinery",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/K Lewis Joinery website design West Lothian.jpg",
     description: "Professional equestrian and joinery specialists portfolio",
     url: "https://www.klewisjoineryltd.co.uk/",
     features: ["Lightning Fast", "Mobile First", "Custom Design"],
   },
   {
     title: "Herb & Soul",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/Herb and Soul website design project Bear Media.jpg",
     description: "Healing through herbalism and nature immersion",
     url: "https://www.herbandsoul.uk/",
     features: ["SEO Optimised", "Nature Theme", "Interactive"],
   },
   {
     title: "Managing What Matters",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/Managing What Matters website design Bear Media Scotland.jpg",
     description: "People-powered performance and leadership training",
     url: "https://www.managingwhatmatters.co.uk/",
     features: ["Next.js", "TypeScript", "Tailwind"],

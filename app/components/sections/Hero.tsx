@@ -23,7 +23,7 @@ export function Hero() {
 
       <div className="absolute inset-0">
         <img
-          src="/placeholder.svg?height=1080&width=1920"
+          src="/images/Garry Lynch professional videographer West Lothian.1.png"
           alt=""
           className="w-full h-full object-cover opacity-30"
           loading="lazy"
