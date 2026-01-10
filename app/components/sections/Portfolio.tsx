@@ -1,242 +1,251 @@
 "use client"
 
-import { useState } from "react"
+import { ExternalLink, CheckCircle } from "lucide-react"
 
-interface PortfolioImage {
-  src: string
-  alt: string
-  title: string
-}
-
-interface PortfolioCategory {
-  id: string
-  title: string
+interface Project {
+  name: string
+  type: "Website" | "Social Media"
   description: string
-  coverImage: string
-  images: PortfolioImage[]
+  tags: string[]
+  outcome?: string
+  cta?: {
+    text: string
+    href: string
+  }
 }
 
-const categories: PortfolioCategory[] = [
+const featuredProjects: Project[] = [
   {
-    id: "events",
-    title: "Events & Conferences",
-    description: "Capturing the energy and emotion of corporate events",
-    coverImage: "/images/ABBA tribute event photography Edinburgh venue Bear Media.jpg",
-    images: [
-      {
-        src: "/images/ABBA tribute event photography Edinburgh venue Bear Media.jpg",
-        alt: "ABBA Event",
-        title: "ABBA Tribute Event",
-      },
-      {
-        src: "/images/Conference panel discussion video production Scotland.png",
-        alt: "Conference Speaker",
-        title: "Wellness Conference",
-      },
-      {
-        src: "/images/Corporate conference presentation filming Edinburgh.jpg",
-        alt: "Presentation",
-        title: "Conference Presentation",
-      },
-      {
-        src: "/images/Corporate speaker event photography Scotland.jpg",
-        alt: "Event Speaker",
-        title: "Corporate Event",
-      },
-    ],
+    name: "K Lewis Joinery",
+    type: "Website",
+    description: "Professional equestrian and joinery specialists portfolio",
+    outcome: "Clear service presentation with mobile-first design",
+    tags: ["Website Build", "Mobile First", "Local Business"],
   },
   {
-    id: "culinary",
-    title: "Culinary & Dining",
-    description: "Showcasing the artistry of food and culinary experiences",
-    coverImage: "/images/Fine dining food plating photography Edinburgh restaurant.png",
-    images: [
-      {
-        src: "/images/Fine dining food plating photography Edinburgh restaurant.png",
-        alt: "Fine Dining",
-        title: "Fine Dining Presentation",
-      },
-      {
-        src: "/images/Beef wellington culinary video content Scotland.png",
-        alt: "Beef Wellington",
-        title: "Beef Wellington",
-      },
-      {
-        src: "/images/Chef demonstration video production Edinburgh restaurant.jpg",
-        alt: "Chef Demo",
-        title: "Chef Demonstration",
-      },
-      {
-        src: "/images/Culinary teaching event video production Edinburgh.png",
-        alt: "Culinary Demo",
-        title: "Culinary Workshop",
-      },
-    ],
+    name: "Free Spirit Coaching",
+    type: "Website",
+    description: "Wellness coaching practice with booking integration",
+    outcome: "Professional presence driving enquiries and bookings",
+    tags: ["Website Build", "Booking System", "Wellness"],
   },
   {
-    id: "travel",
-    title: "Edinburgh & Scotland",
-    description: "Breathtaking landscapes and iconic Scottish locations",
-    coverImage: "/images/Edinburgh sunset skyline drone photography Scotland.jpg",
-    images: [
-      {
-        src: "/images/Edinburgh sunset skyline drone photography Scotland.jpg",
-        alt: "Edinburgh Sunset",
-        title: "Edinburgh Skyline",
-      },
-      { src: "/images/Bass Rock seabird colony photography East Lothian.png", alt: "Bass Rock", title: "Bass Rock" },
-      {
-        src: "/images/Edinburgh autumn cityscape photography Scotland.jpg",
-        alt: "Edinburgh Autumn",
-        title: "Edinburgh in Autumn",
-      },
-      {
-        src: "/images/Sunset water reflections landscape photography Scotland.jpg",
-        alt: "Water Reflections",
-        title: "Coastal Sunset",
-      },
-    ],
+    name: "Managing What Matters",
+    type: "Website",
+    description: "People-powered performance consultancy platform",
+    outcome: "Leadership positioning with clear service offerings",
+    tags: ["Website Build", "B2B", "Performance"],
+  },
+]
+
+const websiteProjects: Project[] = [
+  {
+    name: "K Lewis Joinery",
+    type: "Website",
+    description: "Equestrian and joinery portfolio showcasing craftsmanship and expertise",
+    tags: ["Portfolio", "Mobile First", "Local"],
   },
   {
-    id: "commercial",
-    title: "Commercial & Architecture",
-    description: "Professional photography for businesses and architecture",
-    coverImage: "/images/Aerial drone construction site video Scotland.jpeg",
-    images: [
-      {
-        src: "/images/Aerial drone construction site video Scotland.jpeg",
-        alt: "Aerial Construction",
-        title: "Construction Project",
-      },
-      {
-        src: "/images/Professional business portrait photography Edinburgh.jpg",
-        alt: "Business Portrait",
-        title: "Professional Portrait",
-      },
-      {
-        src: "/images/K Lewis Joinery craftsman video West Lothian.jpg",
-        alt: "K Lewis Joinery",
-        title: "K Lewis Joinery",
-      },
-      {
-        src: "/images/Solar panel house drone photography Scotland property.jpg",
-        alt: "Solar House",
-        title: "Property Photography",
-      },
-    ],
+    name: "Herb & Soul",
+    type: "Website",
+    description: "Healing through herbalism and nature immersion",
+    tags: ["Wellness", "Nature Theme", "E-commerce"],
+  },
+  {
+    name: "Free Spirit Coaching",
+    type: "Website",
+    description: "Wellness coaching with online booking",
+    tags: ["Coaching", "Booking", "Wellness"],
+  },
+  {
+    name: "Managing What Matters",
+    type: "Website",
+    description: "Performance and leadership consultancy",
+    tags: ["B2B", "Consultancy", "Professional"],
+  },
+]
+
+const socialProjects: Project[] = [
+  {
+    name: "Event Coverage",
+    type: "Social Media",
+    description: "Corporate events, conferences, and live performances",
+    tags: ["Video", "Photo", "Events"],
+  },
+  {
+    name: "Culinary Content",
+    type: "Social Media",
+    description: "Restaurant showcases and food presentation",
+    tags: ["Video", "Food", "Lifestyle"],
+  },
+  {
+    name: "Property & Architecture",
+    type: "Social Media",
+    description: "Drone footage and architectural photography",
+    tags: ["Drone", "Photo", "Property"],
+  },
+  {
+    name: "Local Business Content",
+    type: "Social Media",
+    description: "Ongoing social content for Scottish businesses",
+    tags: ["Video", "Photo", "Consistency"],
   },
 ]
 
 export function Portfolio() {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
-  const [lightboxImage, setLightboxImage] = useState<PortfolioImage | null>(null)
-
-  const selectedCategoryData = categories.find((cat) => cat.id === selectedCategory)
-
   return (
     <section id="portfolio" className="bg-zinc-950 py-16 sm:py-20 md:py-24">
       <div className="container">
-        <div className="text-center mb-10 sm:mb-12">
+        {/* Header */}
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
           <h2 className="gradient-text text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">Work</h2>
           <div className="h-1 w-20 bg-gradient-to-r from-orange-500 to-amber-500 mx-auto rounded-full mb-4" />
           <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto px-4">
-            Explore my diverse collection of work across events, culinary, travel, and commercial photography
+            Clear websites and content that help businesses get found and contacted
           </p>
         </div>
 
-        {!selectedCategory ? (
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 max-w-5xl mx-auto">
-            {categories.map((category, index) => (
-              <div
-                key={category.id}
-                onClick={() => setSelectedCategory(category.id)}
-                className="group cursor-pointer overflow-hidden rounded-xl sm:rounded-2xl active:scale-98 transition-transform duration-200"
-              >
-                <div className="relative aspect-square sm:aspect-[4/3]">
-                  <img
-                    src={category.coverImage || "/placeholder.svg"}
-                    alt={category.title}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-
-                  <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
-                    <h3 className="text-sm sm:text-base md:text-lg font-semibold text-white leading-tight">
-                      {category.title}
-                    </h3>
-                    <p className="hidden sm:block text-xs sm:text-sm text-gray-300 mt-1 line-clamp-2">
-                      {category.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
+        {/* Featured Work */}
+        <div className="mb-16 sm:mb-20 md:mb-24">
+          <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8">Featured Work</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+            {featuredProjects.map((project) => (
+              <ProjectCard key={project.name} project={project} featured />
             ))}
           </div>
-        ) : (
-          <div className="flex flex-col gap-4 sm:gap-6">
-            <button
-              onClick={() => setSelectedCategory(null)}
-              className="self-start px-4 py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-semibold rounded-lg active:scale-98 transition-transform min-h-[48px]"
-            >
-              ← Back
-            </button>
+        </div>
 
-            {selectedCategoryData && (
-              <>
-                <div className="text-center mb-4">
-                  <h3 className="gradient-text text-xl sm:text-2xl font-bold mb-2">{selectedCategoryData.title}</h3>
-                  <p className="text-sm sm:text-base text-gray-400">{selectedCategoryData.description}</p>
-                </div>
-
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
-                  {selectedCategoryData.images.map((image, index) => (
-                    <div
-                      key={index}
-                      onClick={() => setLightboxImage(image)}
-                      className="group cursor-pointer overflow-hidden rounded-lg active:scale-98 transition-transform"
-                    >
-                      <div className="relative aspect-square">
-                        <img
-                          src={image.src || "/placeholder.svg"}
-                          alt={image.alt}
-                          className="absolute inset-0 w-full h-full object-cover"
-                          loading="lazy"
-                        />
-                      </div>
-                      <p className="text-xs sm:text-sm text-white p-2 bg-zinc-900">{image.title}</p>
-                    </div>
-                  ))}
-                </div>
-              </>
-            )}
+        {/* Website Projects */}
+        <div className="mb-16 sm:mb-20 md:mb-24">
+          <div className="mb-6 sm:mb-8">
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Website Projects</h3>
+            <p className="text-sm sm:text-base text-gray-400">
+              Business websites built for clarity, speed, and conversion
+            </p>
           </div>
-        )}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            {websiteProjects.map((project) => (
+              <ProjectCard key={project.name} project={project} />
+            ))}
+          </div>
+        </div>
 
-        {/* Lightbox */}
-        {lightboxImage && (
-          <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4"
-            onClick={() => setLightboxImage(null)}
+        {/* Social Media Content */}
+        <div className="mb-16 sm:mb-20 md:mb-24">
+          <div className="mb-6 sm:mb-8">
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Social Media Content</h3>
+            <p className="text-sm sm:text-base text-gray-400">Video and photo content for consistent brand presence</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            {socialProjects.map((project) => (
+              <ProjectCard key={project.name} project={project} />
+            ))}
+          </div>
+        </div>
+
+        {/* How I Work */}
+        <div className="mb-16 sm:mb-20 md:mb-24 max-w-3xl mx-auto">
+          <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8 text-center">How I Work</h3>
+          <div className="glass p-6 sm:p-8 rounded-xl space-y-6">
+            <ProcessStep
+              number="1"
+              title="Understand the business"
+              description="What you do, who you serve, what makes you different"
+            />
+            <ProcessStep
+              number="2"
+              title="Build the foundation"
+              description="A website that clearly explains your offer and makes it easy to get in touch"
+            />
+            <ProcessStep
+              number="3"
+              title="Amplify with content"
+              description="Video and photo content that keeps you visible and builds trust"
+            />
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="text-center glass p-8 sm:p-10 md:p-12 rounded-2xl max-w-3xl mx-auto">
+          <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+            Need a website that works and content that supports it?
+          </h3>
+          <p className="text-base sm:text-lg text-gray-400 mb-6">Let's talk about what you need and how I can help</p>
+          <a
+            href="#contact"
+            className="inline-block px-8 py-4 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full font-semibold text-lg text-white hover:from-orange-400 hover:to-amber-400 active:scale-98 transition-all duration-300 min-h-[48px]"
           >
-            <button
-              onClick={() => setLightboxImage(null)}
-              className="absolute top-4 right-4 text-white text-4xl p-2 min-w-[48px] min-h-[48px] flex items-center justify-center"
-              aria-label="Close"
-            >
-              ×
-            </button>
-            <div className="relative max-w-4xl max-h-[80vh] w-full">
-              <img
-                src={lightboxImage.src || "/placeholder.svg"}
-                alt={lightboxImage.alt}
-                className="object-contain w-full h-auto max-h-[80vh]"
-              />
-              <p className="text-white text-center mt-4 text-sm sm:text-base">{lightboxImage.title}</p>
-            </div>
-          </div>
-        )}
+            Get in Touch
+          </a>
+        </div>
       </div>
     </section>
+  )
+}
+
+function ProjectCard({ project, featured = false }: { project: Project; featured?: boolean }) {
+  return (
+    <div
+      className={`group glass p-5 sm:p-6 rounded-xl hover:border-orange-500/50 transition-all duration-300 ${featured ? "hover:shadow-xl hover:shadow-orange-500/10 hover:-translate-y-1" : "hover:-translate-y-0.5"}`}
+    >
+      <div className="mb-4 aspect-video bg-zinc-900/50 rounded-lg border border-zinc-800 flex items-center justify-center">
+        <span className="text-xs text-zinc-700">Image slot</span>
+      </div>
+
+      <div className="flex items-center gap-2 mb-3">
+        <span
+          className={`text-xs font-semibold px-2.5 py-1 rounded-full ${
+            project.type === "Website" ? "bg-orange-500/20 text-orange-400" : "bg-amber-500/20 text-amber-400"
+          }`}
+        >
+          {project.type}
+        </span>
+      </div>
+
+      <h4 className="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
+        {project.name}
+      </h4>
+
+      <p className="text-sm sm:text-base text-gray-400 mb-4 leading-relaxed">{project.description}</p>
+
+      {project.outcome && (
+        <div className="flex items-start gap-2 mb-4 p-3 bg-zinc-900/50 rounded-lg border border-zinc-800">
+          <CheckCircle className="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5" />
+          <p className="text-sm text-gray-300">{project.outcome}</p>
+        </div>
+      )}
+
+      <div className="flex flex-wrap gap-2">
+        {project.tags.map((tag) => (
+          <span key={tag} className="text-xs text-gray-500 bg-zinc-900 px-2 py-1 rounded">
+            {tag}
+          </span>
+        ))}
+      </div>
+
+      {project.cta && (
+        <a
+          href={project.cta.href}
+          className="mt-4 inline-flex items-center gap-2 text-sm text-orange-400 hover:text-orange-300 transition-colors group/link"
+        >
+          {project.cta.text}
+          <ExternalLink className="w-4 h-4 group-hover/link:translate-x-0.5 transition-transform" />
+        </a>
+      )}
+    </div>
+  )
+}
+
+function ProcessStep({ number, title, description }: { number: string; title: string; description: string }) {
+  return (
+    <div className="flex gap-4">
+      <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-orange-500 to-amber-500 rounded-full flex items-center justify-center font-bold text-white">
+        {number}
+      </div>
+      <div>
+        <h4 className="text-base sm:text-lg font-semibold text-white mb-1">{title}</h4>
+        <p className="text-sm sm:text-base text-gray-400">{description}</p>
+      </div>
+    </div>
   )
 }
