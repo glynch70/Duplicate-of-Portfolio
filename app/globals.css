@@ -1,0 +1,287 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ═══════════════════════════════════════════════
+   BEAR MEDIA — PORTFOLIO SITE (OCHRE/GOLD PIVOT)
+   Matched to bear-media-new main site design
+   ═══════════════════════════════════════════════ */
+
+:root {
+  --background: #121212;
+  --foreground: #F8F6F1;
+  --card: #1E1E1E;
+  --card-foreground: #F8F6F1;
+  --popover: #121212;
+  --popover-foreground: #F8F6F1;
+  --primary: #DDA31E;
+  --primary-foreground: #121212;
+  --secondary: #1E1E1E;
+  --secondary-foreground: #F8F6F1;
+  --muted: #1E1E1E;
+  --muted-foreground: rgba(255, 255, 255, 0.4);
+  --accent: #B58416;
+  --accent-foreground: #121212;
+  --destructive: #ef4444;
+  --destructive-foreground: #ef4444;
+  --border: rgba(255, 255, 255, 0.05);
+  --input: #1E1E1E;
+  --ring: #DDA31E;
+  --radius: 0.625rem;
+
+  /* ── Brand tokens ── */
+  --brand-yellow: #DDA31E;
+  --brand-yellow-dark: #B58416;
+  --color-dark: #121212;
+  --color-light: #F8F6F1;
+  --color-charcoal: #1E1E1E;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Brand color aliases for Tailwind */
+  --color-brand-yellow: #DDA31E;
+  --color-brand-yellow-dark: #B58416;
+  --color-dark: #121212;
+  --color-charcoal: #1E1E1E;
+  --color-light: #F8F6F1;
+
+  --font-body: var(--font-poppins), sans-serif;
+  --font-display: var(--font-poppins), sans-serif;
+  --font-poppins: var(--font-poppins), sans-serif;
+
+  --animate-float: float 5s ease-in-out infinite;
+  --animate-float-slow: float 6s ease-in-out infinite;
+  --animate-float-fast: float 4s ease-in-out infinite;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background: var(--color-dark);
+    color: var(--color-light);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+  }
+
+  ::selection {
+    background: var(--brand-yellow);
+    color: var(--color-dark);
+  }
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #121212;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #DDA31E, #B58416);
+  border-radius: 4px;
+}
+
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   UTILITY CLASSES — Matched to bear-media-new
+   ═══════════════════════════════════════════════ */
+
+/* Text gradient (gold) */
+.text-gradient,
+.gradient-text {
+  background: linear-gradient(135deg, #DDA31E 0%, #B58416 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Background gradient */
+.bg-gradient-brand {
+  background: linear-gradient(135deg, #DDA31E 0%, #B58416 100%);
+}
+
+/* Glass card — premium dark glassmorphism */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+}
+
+.glass-card-light {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+}
+
+/* Legacy glass class (kept for compatibility) */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* 3D Flip Card Support */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════════ */
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.animate-gradient {
+  background-size: 200% auto;
+  animation: gradient 3s ease infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out forwards;
+}
+
+.animate-marquee {
+  animation: marquee 50s linear infinite;
+}
+
+/* ── Interactive feedback ── */
+img {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+button:active,
+a:active {
+  transform: scale(0.98);
+}
+
+.touch-target {
+  min-width: 48px;
+  min-height: 48px;
+}
