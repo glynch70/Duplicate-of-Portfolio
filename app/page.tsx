@@ -1,22 +1,21 @@
-import { Hero } from "./components/sections/Hero"
-import { Portfolio } from "./components/sections/Portfolio"
-import { WebDevelopment } from "./components/sections/WebDevelopment"
-import { ScotPopPrints } from "./components/sections/ScotPopPrints"
-import { Services } from "./components/sections/Services"
-import { SocialMedia } from "./components/sections/SocialMedia"
-import { Contact } from "./components/sections/Contact"
-
-export default function HomePage() {
+export default function Maintenance() {
   return (
-    <div className="min-h-screen bg-[#121212] text-white overflow-x-hidden">
-      <Hero />
-      <Portfolio />
-      <Services />
-      <SocialMedia />
-      <WebDevelopment />
-      <ScotPopPrints />
-      <Contact />
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+      backgroundColor: '#000',
+      color: '#FFC107',
+      fontFamily: 'system-ui, sans-serif',
+      textAlign: 'center',
+      padding: '20px'
+    }}>
+      <div>
+        <h1 style={{ fontSize: '3em', margin: '0 0 20px 0' }}>🚧 Maintenance Mode</h1>
+        <p style={{ fontSize: '1.2em', margin: 0 }}>Portfolio site is under maintenance.</p>
+        <p style={{ fontSize: '1em', color: '#999', marginTop: '20px' }}>We'll be back soon!</p>
+      </div>
     </div>
   )
 }
-
