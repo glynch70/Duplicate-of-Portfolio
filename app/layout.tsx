@@ -1,7 +1,7 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
 import { Figtree } from "next/font/google"
-import "./globals.css"
+import "./styles/globals.css"
 import { Header } from "./components/layout/Header"
 import { Footer } from "./components/layout/Footer"
 import { SchemaOrg } from "./components/seo/SchemaOrg"
