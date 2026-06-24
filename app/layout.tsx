@@ -1,7 +1,6 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
 import { Figtree } from "next/font/google"
-import "./globals.css"
 import { Header } from "./components/layout/Header"
 import { Footer } from "./components/layout/Footer"
 import { SchemaOrg } from "./components/seo/SchemaOrg"
@@ -78,11 +77,43 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en-GB" className={figtree.variable}>
+    <html lang="en" className={`${figtree.variable}`} style={{
+      '--background': '#0a0a0a',
+      '--foreground': '#fafafa',
+      '--card': '#141414',
+      '--card-foreground': '#fafafa',
+      '--primary': '#d4a574',
+      '--primary-foreground': '#0a0a0a',
+      '--secondary': '#1a1a1a',
+      '--secondary-foreground': '#fafafa',
+      '--muted': '#2a2a2a',
+      '--muted-foreground': 'rgba(255, 255, 255, 0.5)',
+      '--accent': '#d4a574',
+      '--accent-foreground': '#0a0a0a',
+      '--destructive': '#ef4444',
+      '--destructive-foreground': '#fafafa',
+      '--border': 'rgba(255, 255, 255, 0.08)',
+      '--input': '#1a1a1a',
+      '--ring': '#d4a574',
+      '--radius': '0.375rem',
+    } as React.CSSProperties}>
       <head>
         <SchemaOrg />
+        <style>{`
+          * { margin: 0; padding: 0; border-color: var(--border); outline-color: var(--ring); }
+          html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+          body { background: var(--background); color: var(--foreground); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; overflow-x: hidden; -webkit-overflow-scrolling: touch; }
+          h1, h2, h3, h4, h5, h6 { font-weight: 600; }
+          ::selection { background: var(--primary); color: var(--primary-foreground); }
+          .bg-background { background-color: var(--background); }
+          .text-foreground { color: var(--foreground); }
+          .bg-primary { background-color: var(--primary); }
+          .text-primary { color: var(--primary); }
+          .text-primary-foreground { color: var(--primary-foreground); }
+          .border-border { border-color: var(--border); }
+        `}</style>
       </head>
-      <body className="font-figtree antialiased selection:bg-primary selection:text-primary-foreground bg-background text-foreground" suppressHydrationWarning>
+      <body className="font-figtree antialiased" suppressHydrationWarning>
         <Header />
         <main>{children}</main>
         <Footer />
