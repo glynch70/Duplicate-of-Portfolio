@@ -25,13 +25,6 @@ const projects = [
     image: '/portfolio-3.png',
     category: 'Website & Photography'
   },
-  {
-    id: 4,
-    title: 'Mobile Phone Fix',
-    description: 'Service website and promotional video content',
-    image: '/portfolio-4.png',
-    category: 'Website & Video'
-  },
 ]
 
 export function Portfolio() {
