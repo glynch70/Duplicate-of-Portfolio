@@ -1,70 +1,73 @@
-"use client"
+'use client'
 
-import { motion } from "framer-motion"
-import { Star } from "lucide-react"
+import { Star } from 'lucide-react'
 
 const testimonials = [
   {
-    name: "Sarah Mitchell",
-    role: "Events Manager — Edinburgh Conference Centre",
-    content: "Garry captured our annual conference perfectly. Unobtrusive, professional, and the photos showcase exactly what we needed.",
+    quote: 'Bear Media transformed how we present our business online. The quality of work and professionalism is outstanding.',
+    author: 'James Robertson',
+    role: 'Business Owner',
   },
   {
-    name: "James Robertson",
-    role: "Owner — K Lewis Joinery",
-    content: "The drone footage and photography of our projects has been invaluable. Professional service, quality speaks for itself.",
+    quote: 'Working with Garry was a pleasure. He understood our vision and delivered exceptional results on time and on budget.',
+    author: 'Sarah Mitchell',
+    role: 'Marketing Manager',
   },
   {
-    name: "Emma Campbell",
-    role: "Marketing Director — Scottish Property Group",
-    content: "We've used Bear Media for multiple property shoots. Attention to detail and quick turnaround make Garry our go-to.",
+    quote: 'The drone footage and photography elevated our property listings significantly. Highly recommended.',
+    author: 'Emma Campbell',
+    role: 'Real Estate Director',
   },
 ]
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="py-16 md:py-24 px-4 md:px-8 lg:px-12 bg-[#0E0E0E]">
-      <div className="max-w-[1600px] mx-auto">
-        {/* Header — compact inline */}
-        <div className="flex flex-col md:flex-row md:items-center gap-4 mb-12">
-          <div className="flex gap-1 mr-4">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-4 h-4 fill-[#DDA31E] text-[#DDA31E]" />
-            ))}
-          </div>
-          <p className="text-white/40 text-sm italic">
-            What clients say about working with Bear Media
+    <section id="testimonials" className="py-16 md:py-24 bg-secondary">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-16 md:mb-20">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+            <span className="text-foreground">Client</span>{' '}
+            <span className="text-gradient">Testimonials</span>
+          </h2>
+          <p className="text-foreground/70 text-lg">
+            Real feedback from businesses we&apos;ve worked with
           </p>
         </div>
 
-        {/* Testimonials — horizontal cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* Testimonials Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {testimonials.map((testimonial, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white/[0.03] border border-white/5 rounded-xl p-6 md:p-8 hover:border-white/10 transition-colors"
+              className="glass-card p-8 hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 flex flex-col"
             >
-              <p className="text-white/60 text-sm md:text-base leading-relaxed italic mb-6">
-                &ldquo;{testimonial.content}&rdquo;
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#DDA31E] to-[#B58416] flex items-center justify-center text-[#121212] font-black text-sm flex-shrink-0">
-                  {testimonial.name.charAt(0)}
-                </div>
-                <div>
-                  <span className="text-white font-bold text-xs uppercase tracking-wider block">
-                    {testimonial.name}
-                  </span>
-                  <span className="text-white/30 text-[10px] italic">
-                    {testimonial.role}
-                  </span>
-                </div>
+              {/* Stars */}
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    size={16}
+                    className="fill-primary text-primary"
+                  />
+                ))}
               </div>
-            </motion.div>
+
+              {/* Quote */}
+              <p className="text-foreground/80 text-base leading-relaxed mb-6 flex-grow">
+                &ldquo;{testimonial.quote}&rdquo;
+              </p>
+
+              {/* Author */}
+              <div>
+                <p className="font-semibold text-foreground">
+                  {testimonial.author}
+                </p>
+                <p className="text-foreground/60 text-sm">
+                  {testimonial.role}
+                </p>
+              </div>
+            </div>
           ))}
         </div>
       </div>

@@ -1,12 +1,14 @@
-"use client"
+'use client'
 
-import { useState, useEffect } from "react"
-import { Menu, X } from "lucide-react"
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { Menu, X } from 'lucide-react'
 
 const navLinks = [
-  { name: "Services", href: "#services" },
-  { name: "Work", href: "#portfolio" },
-  { name: "Contact", href: "#contact" },
+  { name: 'Services', href: '#services' },
+  { name: 'Portfolio', href: '#portfolio' },
+  { name: 'About', href: '#about' },
+  { name: 'Contact', href: '#contact' },
 ]
 
 export function Header() {
@@ -15,87 +17,97 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      setIsScrolled(window.scrollY > 10)
     }
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const handleNavClick = () => {
+    setIsMenuOpen(false)
+  }
+
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-[100] px-6 py-4 flex justify-between items-center transition-all duration-300 ${
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#121212]/90 backdrop-blur-md border-b border-white/10"
-          : "bg-[#121212]/20 backdrop-blur-md border-b border-white/5"
+          ? 'bg-background/95 backdrop-blur-md border-b border-border'
+          : 'bg-transparent'
       }`}
     >
-      {/* Logo */}
-      <div className="flex items-center gap-3">
-        <a href="/" className="flex items-center gap-3 group">
-          <div className="relative w-12 h-12 md:w-14 md:h-14">
-            <img
-              src="/images/bear media scotland logo.png"
-              alt="Bear Media Logo"
-              className="w-full h-full object-contain"
-            />
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 md:h-20">
+          {/* Logo */}
+          <Link href="/" className="flex-shrink-0 group">
+            <div className="flex items-center gap-2">
+              <span className="text-2xl md:text-3xl font-bold tracking-tight">
+                <span className="text-gradient">Bear</span> <span className="text-foreground">Media</span>
+              </span>
+            </div>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-foreground/70 hover:text-primary transition-colors duration-200 text-sm font-medium"
+              >
+                {link.name}
+              </a>
+            ))}
           </div>
-          <span className="text-2xl font-black text-white italic tracking-tighter group-hover:text-[#DDA31E] transition-colors">
-            BEAR MEDIA
-          </span>
-        </a>
-      </div>
 
-      {/* Desktop Nav */}
-      <div className="hidden md:flex gap-10">
-        {navLinks.map((link) => (
-          <a
-            key={link.name}
-            href={link.href}
-            className="text-white/60 text-xs uppercase tracking-[0.3em] font-black transition-all duration-300 hover:text-[#DDA31E] hover:scale-110"
-          >
-            {link.name}
-          </a>
-        ))}
-      </div>
-
-      {/* Mobile Hamburger */}
-      <button
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="md:hidden p-3 -mr-3 text-white/60 hover:text-white transition-colors min-w-[48px] min-h-[48px] flex items-center justify-center"
-        aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-      >
-        {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-      </button>
-
-      {/* Mobile Menu */}
-      <div
-        className={`md:hidden fixed inset-0 top-[72px] bg-[#121212]/98 backdrop-blur-xl transition-all duration-300 ${
-          isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
-        }`}
-      >
-        <div className="px-8 py-10 flex flex-col gap-2">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={() => setIsMenuOpen(false)}
-              className="text-white/60 hover:text-[#DDA31E] transition-colors py-5 text-sm uppercase tracking-[0.3em] font-black border-b border-white/5 min-h-[48px] flex items-center"
+          {/* Desktop CTA Button */}
+          <div className="hidden md:block">
+            <button
+              onClick={() => {
+                window.location.href = '#contact'
+              }}
+              className="px-6 py-2.5 bg-primary text-primary-foreground rounded font-medium text-sm hover:opacity-90 transition-all duration-200 hover:shadow-lg"
             >
-              {link.name}
-            </a>
-          ))}
+              Book a Call
+            </button>
+          </div>
 
-          <a
-            href="https://calendly.com/bearmedia/discovery-call"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setIsMenuOpen(false)}
-            className="mt-6 px-8 py-4 bg-[#DDA31E] text-[#121212] rounded-full font-black text-sm uppercase italic tracking-widest text-center min-h-[48px] flex items-center justify-center hover:scale-105 transition-transform"
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden text-foreground p-2 hover:bg-muted rounded-lg transition-colors"
+            aria-label="Toggle menu"
           >
-            Book a call
-          </a>
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
-      </div>
-    </nav>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-background border-t border-border">
+            <div className="px-4 py-6 space-y-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={handleNavClick}
+                  className="block text-foreground/80 hover:text-primary transition-colors duration-200 font-medium py-2"
+                >
+                  {link.name}
+                </a>
+              ))}
+              <button
+                onClick={() => {
+                  window.location.href = '#contact'
+                  handleNavClick()
+                }}
+                className="w-full mt-4 px-6 py-3 bg-primary text-primary-foreground rounded font-medium hover:opacity-90 transition-all duration-200"
+              >
+                Book a Call
+              </button>
+            </div>
+          </div>
+        )}
+      </nav>
+    </header>
   )
 }

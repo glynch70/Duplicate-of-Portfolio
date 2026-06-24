@@ -1,81 +1,82 @@
-"use client"
+'use client'
 
-import { motion } from "framer-motion"
-import { Video, Camera, Plane, Globe, Instagram } from "lucide-react"
+import { Video, Camera, Plane, Globe, Share2, Zap } from 'lucide-react'
 
 const services = [
-  { icon: Video, label: "Video", desc: "Events, social content, promotional" },
-  { icon: Camera, label: "Photography", desc: "Food, product, corporate, lifestyle" },
-  { icon: Plane, label: "Drone", desc: "Aerial 4K, property, construction" },
-  { icon: Globe, label: "Websites", desc: "Custom-built business sites" },
-  { icon: Instagram, label: "Social", desc: "Content strategy & creation" },
+  {
+    icon: Camera,
+    title: 'Photography',
+    description: 'Professional photography for products, events, corporate and lifestyle content.'
+  },
+  {
+    icon: Video,
+    title: 'Video Production',
+    description: 'From concept to delivery. Professional video content that tells your story.'
+  },
+  {
+    icon: Plane,
+    title: 'Drone Content',
+    description: 'Stunning aerial 4K footage for properties, events and promotional work.'
+  },
+  {
+    icon: Share2,
+    title: 'Social Media',
+    description: 'Strategic content creation and social media management for your business.'
+  },
+  {
+    icon: Globe,
+    title: 'Website Design',
+    description: 'Custom-built, responsive websites that convert visitors into customers.'
+  },
+  {
+    icon: Zap,
+    title: 'AI Automation',
+    description: 'Leverage AI to streamline your content creation and business processes.'
+  },
 ]
 
 export function Services() {
   return (
-    <section id="services" className="py-16 md:py-24 px-4 md:px-8 lg:px-12 bg-[#121212] border-y border-white/5">
-      <div className="max-w-[1600px] mx-auto">
-        {/* Compact header */}
-        <motion.div 
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-12"
-        >
-          <h2 className="text-2xl md:text-3xl font-black text-white italic tracking-tighter">
-            What I <span className="text-[#DDA31E]">Shoot.</span>
+    <section id="services" className="py-16 md:py-24 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-16 md:mb-20">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+            <span className="text-foreground">My</span>{' '}
+            <span className="text-gradient">Services</span>
           </h2>
-          <a
-            href="#contact"
-            className="text-[#DDA31E] text-xs font-black uppercase tracking-widest hover:text-white transition-colors flex items-center gap-2 self-start md:self-auto"
-          >
-            Discuss a project
-            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
-        </motion.div>
+          <p className="text-foreground/70 text-lg max-w-2xl mx-auto">
+            Complete content solutions for Scottish businesses looking to make an impact.
+          </p>
+        </div>
 
-        {/* Service cards — clean horizontal layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
+        {/* Service Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => {
-            const isVideo = service.label === "Video"
-            const Wrapper = isVideo ? motion.a : motion.div
-            const wrapperProps = isVideo ? {
-              href: "https://www.youtube.com/@bearmedia70",
-              target: "_blank",
-              rel: "noopener noreferrer",
-              className: "group bg-white/[0.04] border border-white/10 rounded-2xl p-10 md:p-12 hover:bg-white/[0.08] hover:border-[#DDA31E]/40 transition-all duration-500 flex flex-col items-center text-center cursor-pointer shadow-xl"
-            } : {
-              className: "group bg-white/[0.04] border border-white/10 rounded-2xl p-10 md:p-12 hover:bg-white/[0.08] hover:border-[#DDA31E]/40 transition-all duration-500 flex flex-col items-center text-center shadow-xl"
-            }
-
+            const Icon = service.icon
             return (
-              <Wrapper
-                key={service.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -10, scale: 1.05 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                {...wrapperProps}
+              <div
+                key={service.title}
+                className="group glass-card p-8 hover:border-primary/50 transition-all duration-300 hover:-translate-y-2"
+                style={{
+                  animationDelay: `${index * 0.1}s`,
+                }}
               >
-                <div className="w-20 h-20 rounded-full bg-[#DDA31E]/10 border border-[#DDA31E]/20 flex items-center justify-center mb-6 group-hover:bg-[#DDA31E]/20 transition-colors">
-                  <service.icon size={32} className="text-[#DDA31E]" />
+                {/* Icon */}
+                <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                  <Icon className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="text-white font-black text-2xl uppercase tracking-wider italic mb-3">
-                  {isVideo ? "Video Production" : service.label}
+
+                {/* Title */}
+                <h3 className="text-xl font-semibold text-foreground mb-3">
+                  {service.title}
                 </h3>
-                <p className="text-white text-sm leading-relaxed italic">
-                  {service.desc}
+
+                {/* Description */}
+                <p className="text-foreground/70 leading-relaxed text-sm">
+                  {service.description}
                 </p>
-                {isVideo && (
-                  <span className="mt-4 text-[#DDA31E] text-xs font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
-                    Watch our latest work →
-                  </span>
-                )}
-              </Wrapper>
+              </div>
             )
           })}
         </div>
