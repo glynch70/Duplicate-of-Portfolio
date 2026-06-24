@@ -1,7 +1,7 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
 import { Figtree } from "next/font/google"
-import "./styles/globals.css"
+import "./globals.css"
 import { Header } from "./components/layout/Header"
 import { Footer } from "./components/layout/Footer"
 import { SchemaOrg } from "./components/seo/SchemaOrg"
@@ -69,7 +69,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#121212",
+  themeColor: "#0a0a0a",
 }
 
 export default function RootLayout({
@@ -82,7 +82,7 @@ export default function RootLayout({
       <head>
         <SchemaOrg />
       </head>
-      <body className="font-figtree antialiased selection:bg-[#DDA31E] selection:text-black" suppressHydrationWarning>
+      <body className="font-figtree antialiased selection:bg-primary selection:text-primary-foreground bg-background text-foreground" suppressHydrationWarning>
         <Header />
         <main>{children}</main>
         <Footer />
